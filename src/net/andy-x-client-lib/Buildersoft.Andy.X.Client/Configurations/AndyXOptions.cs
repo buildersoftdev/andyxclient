@@ -13,19 +13,15 @@ namespace Buildersoft.Andy.X.Client.Configurations
 
         public string Tenant { get; set; }
         public string Product { get; set; }
-        public string Component { get; set; }
-        public string Book { get; set; }
 
-        public ReaderOptions ReaderOptions { get; set; }
-        public WriterOptions WriterOptions { get; set; }
+        public ConnectionStates State { get; set; }
 
         public AndyXLogger Logger { get; set; }
         public HttpClientHandler HttpClientHandler { get; set; }
 
         public AndyXOptions()
         {
-            ReaderOptions = new ReaderOptions();
-            WriterOptions = new WriterOptions();
+            State = ConnectionStates.Initialized;
         }
 
         public static AndyXOptions Create(AndyXOptions andyXOptions)
@@ -37,7 +33,8 @@ namespace Buildersoft.Andy.X.Client.Configurations
                 Logger = andyXOptions.Logger,
                 Tenant = andyXOptions.Tenant,
                 Product = andyXOptions.Product,
-                Token = andyXOptions.Token
+                Token = andyXOptions.Token,
+                State = andyXOptions.State
             };
         }
     }

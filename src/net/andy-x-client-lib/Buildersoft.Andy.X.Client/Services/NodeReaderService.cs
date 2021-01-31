@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Buildersoft.Andy.X.Client
 {
-    public partial class Reader<TEntity> where TEntity : new()
+    public partial class Reader<TEntity>
     {
         private class NodeReaderService
         {
@@ -23,7 +23,7 @@ namespace Buildersoft.Andy.X.Client
             {
                 _logger = nodeProvider
                     .GetAndyXClient()
-                    .GetAndyXOptions()
+                    .GetOptions()
                     .Logger
                     .GetLoggerFactory()
                     .CreateLogger<NodeReaderService>();
